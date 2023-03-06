@@ -1,0 +1,84 @@
+Existem 3 tipos de caminhamento em árvores binárias, o primeiro é chamado de pré-ordem, onde a raíz é visitada primeiro, depois vem a sub árvore esquerda e depois a direita:
+O segundo, é o caminhamento em  ordem, onde a sub árvore esquerda é visitada primeiro, depois vem a raíz e depois a sub árvore direita. E o terceiro caminhamento é o 
+caminhamento pós-ordem, onde a sub árvore esquerda é visitada primeiro, em seguida a sub árvore direita e depois a raíz. 
+
+Em código python, assim ficariam os 3 tipos implementados: 
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def pre_order_traversal(root):
+    if root:
+        print(root.val)
+        pre_order_traversal(root.left)
+        pre_order_traversal(root.right)
+
+def in_order_traversal(root):
+    if root:
+        in_order_traversal(root.left)
+        print(root.val)
+        in_order_traversal(root.right)
+
+def post_order_traversal(root):
+    if root:
+        post_order_traversal(root.left)
+        post_order_traversal(root.right)
+        print(root.val)
+
+Além disso, para testar o código, é necessária uma árvore binária como:
+
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+root.right.left = TreeNode(6)
+root.right.right = TreeNode(7)
+
+Finalizando o processo, voce pode nomear as funções de caminhamento e assim exibir os valores dos nós de forma correta:
+
+
+print("Pre-order traversal:")
+pre_order_traversal(root)
+
+print("In-order traversal:")
+in_order_traversal(root)
+
+print("Post-order traversal:")
+post_order_traversal(root)
+
+
+Por fim, o código deve mostrar como resultado:
+
+Pre-order traversal:
+1
+2
+4
+5
+3
+6
+7
+In-order traversal:
+4
+2
+5
+1
+6
+3
+7
+Post-order traversal:
+4
+5
+2
+6
+7
+3
+1
+
+
+
+
+
